@@ -1,0 +1,397 @@
+// Pagination
+
+$chevron-left: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-left'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E";
+
+$chevron-right: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-right'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E";
+
+$chevron-down: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E";
+
+// Pagination
+
+$pagination-padding-y: 0.5rem !default;
+$pagination-padding-x: 0.85rem !default;
+$pagination-padding-y-sm: 0.443rem !default;
+$pagination-padding-x-sm: 0.745rem !default;
+$pagination-padding-y-lg: 0.5575rem !default;
+$pagination-padding-x-lg: 1rem !default;
+
+$pagination-color: $orange-500 !default;
+$pagination-bg: $orange-500 !default;
+$pagination-border-width: 0 !default;
+
+$pagination-focus-color: inherit !default;
+$pagination-focus-bg: $pagination-bg !default;
+
+$pagination-hover-color: $orange-500 !default;
+$pagination-hover-bg: $pagination-bg !default;
+
+$pagination-active-color: $orange-500 !default;
+
+$pagination-disabled-color: $text-muted !default;
+$pagination-disabled-bg: $pagination-bg !default;
+
+$pagination-font-size-lg: 1.14rem !default; // (c)
+$pagination-font-size-sm: 0.857rem !default; // (c)
+// default look for page item, first and last item
+
+.page-item {
+  border-radius: 5rem;
+
+  &:not(.prev-item),
+  &:not(.next-item),
+  &:not(.first),
+  &:not(.last),
+  &:not(.active) {
+    .page-link {
+      line-height: 1.3;
+    }
+  }
+
+  .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.previous,
+  &.prev,
+  &.next,
+  &.first,
+  &.last {
+    .page-link {
+      width: auto;
+    }
+  }
+
+  &.prev-item,
+  &.next-item {
+    .page-link {
+      transition: all 0.2s ease-out;
+    }
+  }
+
+  // prev and next item separated styles
+  &.prev-item {
+    margin-right: 0.3571rem;
+
+    .page-link {
+      border-radius: 50%;
+
+      &:before {
+        background-image: url(str-replace(
+          str-replace($chevron-left, "currentColor", $orange-500),
+          "#",
+          "%23"
+        ));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px;
+        color: $body-color;
+        width: 8px;
+        height: 18px;
+        content: "";
+      }
+
+      &:hover {
+        background: $pagination-hover-bg;
+        color: $pagination-hover-color;
+      }
+      &:active,
+      &:hover {
+        background-color: $orange-500 !important;
+        &:before {
+          background-image: url(str-replace(
+            str-replace($chevron-left, "currentColor", $white),
+            "#",
+            "%23"
+          )) !important;
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          background-image: url(str-replace(
+            str-replace(
+              $chevron-left,
+              "currentColor",
+              $pagination-disabled-color
+            ),
+            "#",
+            "%23"
+          ));
+        }
+      }
+    }
+
+    & ~ .page-item:nth-child(2) {
+      border-top-left-radius: 5rem;
+      border-bottom-left-radius: 5rem;
+      .page-link {
+        border-top-left-radius: 5rem !important;
+        border-bottom-left-radius: 5rem !important;
+      }
+    }
+
+    & ~ .page-item:nth-last-child(2) {
+      border-top-right-radius: 5rem;
+      border-bottom-right-radius: 5rem;
+      .page-link {
+        border-top-right-radius: 5rem !important;
+        border-bottom-right-radius: 5rem !important;
+      }
+    }
+  }
+
+  &.next-item {
+    margin-left: 0.3571rem;
+
+    .page-link {
+      border-radius: 50%;
+
+      &:after {
+        background-image: url(str-replace(
+          str-replace($chevron-right, "currentColor", $orange-500),
+          "#",
+          "%23"
+        ));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px;
+        width: 8px;
+        height: 18px;
+        content: "";
+      }
+
+      &:hover {
+        background: $pagination-hover-bg;
+        color: $pagination-hover-color;
+      }
+      &:active,
+      &:hover {
+        background-color: $orange-500 !important;
+        &:after {
+          background-image: url(str-replace(
+            str-replace($chevron-right, "currentColor", $white),
+            "#",
+            "%23"
+          )) !important;
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:after {
+          background-image: url(str-replace(
+            str-replace(
+              $chevron-right,
+              "currentColor",
+              $pagination-disabled-color
+            ),
+            "#",
+            "%23"
+          ));
+        }
+      }
+    }
+  }
+
+  // prev and next style
+  &.prev,
+  &.previous {
+    .page-link {
+      &:before {
+        background-image: url(str-replace(
+          str-replace($chevron-left, "currentColor", $pagination-color),
+          "#",
+          "%23"
+        ));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px;
+        color: $body-color;
+        width: 12px;
+        height: 18px;
+        content: "";
+      }
+      // &:active,
+      &:hover {
+        &:before {
+          background-image: url(str-replace(
+            str-replace(
+              $chevron-left,
+              "currentColor",
+              $pagination-active-color
+            ),
+            "#",
+            "%23"
+          )) !important;
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          background-image: url(str-replace(
+            str-replace(
+              $chevron-left,
+              "currentColor",
+              $pagination-disabled-color
+            ),
+            "#",
+            "%23"
+          ));
+        }
+      }
+    }
+  }
+  &.next {
+    .page-link {
+      &:after {
+        background-image: url(str-replace(
+          str-replace($chevron-right, "currentColor", $pagination-color),
+          "#",
+          "%23"
+        ));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px;
+        color: $body-color;
+        width: 12px;
+        height: 18px;
+        content: "";
+      }
+      // &:active,
+      &:hover {
+        &:after {
+          background-image: url(str-replace(
+            str-replace($chevron-right, "currentColor", $orange-500),
+            "#",
+            "%23"
+          )) !important;
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:after {
+          background-image: url(str-replace(
+            str-replace(
+              $chevron-right,
+              "currentColor",
+              $pagination-disabled-color
+            ),
+            "#",
+            "%23"
+          ));
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    .page-link {
+      color: $pagination-disabled-color;
+    }
+  }
+
+  // page link customization
+
+  .page-link {
+    margin: 0;
+    margin-left: 0;
+    font-size: 1rem;
+    min-width: 2.286rem;
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  // for active page item
+  &.active {
+    background-color: $pagination-bg;
+    border-radius: 0;
+
+    .page-link {
+      z-index: 3;
+      border-radius: 5rem;
+      background-color: $orange-500;
+      color: $white !important;
+      font-weight: 600;
+    }
+  }
+
+  // if you don't want separated look
+
+  &:first-child:not(.prev-item) {
+    &.active {
+      border-top-left-radius: 1.428rem;
+      border-bottom-left-radius: 1.428rem;
+      .page-link {
+        border-radius: 5rem;
+      }
+    }
+    .page-link {
+      border-top-left-radius: 1.428rem;
+      border-bottom-left-radius: 1.428rem;
+    }
+  }
+
+  &:last-child:not(.next-item) {
+    &.active {
+      border-top-right-radius: 1.428rem;
+      border-bottom-right-radius: 1.428rem;
+      .page-link {
+        border-radius: 5rem;
+      }
+    }
+    .page-link {
+      border-top-right-radius: 1.428rem;
+      border-bottom-right-radius: 1.428rem;
+    }
+  }
+}
+
+// For Pagination Font sizes
+.pagination {
+  // padding-left: 1rem !important;
+  // padding-right: 5rem !important;
+  padding: 1rem 3rem !important;
+  // For Pagination lg
+  &.pagination-lg {
+    .page-item {
+      .page-link {
+        font-size: $pagination-font-size-lg;
+        min-width: 2.6rem;
+      }
+    }
+  }
+  // For Pagination sm
+  &.pagination-sm {
+    .page-item {
+      .page-link {
+        font-size: $pagination-font-size-sm;
+        min-width: 2rem;
+      }
+    }
+  }
+}
+
+.active > .page-link {
+  background-color: $orange-500;
+  border-color: $orange-500;
+}
+
+.page-item .page-link {
+  color: $orange-500;
+}
+.page-item .page-link:hover {
+  color: $orange-500;
+}
+
+.page-link:hover {
+  background-color: #fff;
+}

@@ -1,0 +1,735 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/sweetalert2/src/sweetalert2.scss";
+// @import "./assets/scss/datatables";
+// @import "./assets/scss/react-dataTable-component";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+// cusom color variable
+$orange-50: #fff7ed;
+$orange-100: #ffedd5;
+$orange-200: #fed7aa;
+$orange-300: #fdba74;
+$orange-400: #fb923c;
+$orange-500: #f97316;
+$orange-600: #ea580c;
+$orange-700: #c2410c;
+
+@import "./assets/scss/pagination";
+@import "./assets/scss/authentication.scss";
+// font
+$font-family: "Lato", sans-serif;
+
+html {
+  font-family: $font-family;
+}
+
+.font-fallback {
+  font-family: $font-family;
+}
+
+.table-header-bg {
+  background-color: rgba($orange-400, 0.1);
+}
+
+.font-size-22 {
+  font-size: 22px !important;
+}
+
+.font-size-20 {
+  font-size: 20px !important;
+}
+
+.default-fz {
+  font-size: 18px !important;
+}
+
+.font-size-16 {
+  font-size: 16px !important;
+}
+
+.font-size-15 {
+  font-size: 15px !important;
+}
+
+.font-size-14 {
+  font-size: 14px !important;
+}
+
+.font-size-12 {
+  font-size: 12px !important;
+}
+
+.font-sans {
+  font-family: sans-serif;
+}
+
+// width
+.width-100 {
+  width: 100% !important;
+}
+.width-70 {
+  width: 70% !important;
+}
+.width-60 {
+  width: 60% !important;
+}
+.width-50 {
+  width: 50% !important;
+}
+.width-40 {
+  width: 40% !important;
+}
+
+.width-30 {
+  width: 30% !important;
+}
+
+.width-20 {
+  width: 20% !important;
+}
+
+.width-15 {
+  width: 15% !important;
+}
+
+.height-100vh {
+  height: 100vh !important;
+}
+
+// width in pixel
+.width-500 {
+  width: 500px !important;
+}
+// ! position center
+.position_center {
+  position: absolute !important;
+  top: 30% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+// hover none
+
+.hover-orange-500 {
+  &:hover {
+    color: $orange-500 !important;
+  }
+}
+
+.hover-black {
+  &:hover {
+    color: black !important;
+  }
+}
+// color
+.orange-400 {
+  color: $orange-400;
+}
+
+.orange-500 {
+  color: $orange-500;
+}
+
+.orange-600 {
+  color: $orange-600;
+}
+
+.orange-700 {
+  color: $orange-700;
+}
+
+.bg-orange-400 {
+  background-color: $orange-400;
+}
+
+.bg-orange-500 {
+  background-color: $orange-500 !important;
+}
+
+.bg-orange-600 {
+  background-color: $orange-600;
+}
+
+.bg-orange-700 {
+  background-color: $orange-700;
+}
+
+// input hover none
+.input-hover-none {
+  &:hover {
+    border-color: $orange-400;
+  }
+
+  &:focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// ! pagination without padding
+.pagination-without-padding {
+  padding: 0 !important;
+}
+// custom color
+.custom-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bell-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -7px;
+  left: 2.5rem;
+  color: #fff;
+  border-radius: 50%;
+  height: 19px;
+  width: 19px;
+}
+
+.custom-hover {
+  &:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+.show-nested {
+  &:hover .custom-hover {
+    background-color: #f8f9fa;
+  }
+
+  &:hover > .menu-hover {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+  }
+
+  &:hover > .user-menu-hover {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+  }
+}
+
+.menu-hover {
+  visibility: hidden;
+  opacity: 0;
+  width: 215px;
+  top: 130%;
+  left: 0%;
+  border-radius: 5px;
+  transition: top 0.3s linear;
+  z-index: 9999;
+}
+
+.user-menu-hover {
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  top: 100%;
+  right: -70%;
+  border-radius: 5px;
+  transition: top 0.3s linear;
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 992px) {
+  .user-menu-hover {
+    right: -50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .user-menu-hover {
+    right: -25%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+}
+
+.dropdown-hover {
+  transition: all 0.2s linear;
+
+  &:hover {
+    padding-left: 22px !important;
+  }
+}
+
+.sidebar_item-hover {
+  transition: all 0.2s linear;
+
+  &:hover {
+    padding-left: 15px !important;
+  }
+}
+
+/// nav menu
+.custom-navmenu {
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  max-width: 100% !important;
+}
+
+//overlow x
+.overflow-x {
+  overflow-x: hidden !important;
+}
+
+// cutom nav font
+.custom-nav-font {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: $font-family !important;
+}
+
+/// footer
+.custom-footer {
+  z-index: 999;
+}
+
+.layout_wrapper {
+  min-height: 100vh;
+}
+// layout custom
+.custom-layout {
+  min-height: 89vh;
+  // width: 55% !important;
+}
+
+// show second nesting
+.show-second-nested {
+  &:hover > .menu-hover {
+    top: 0 !important;
+  }
+}
+
+/// second level nesting menu
+.second-level-nest {
+  left: 100%;
+}
+
+// nav background
+.nav-bg {
+  background: linear-gradient(
+    118deg,
+    rgba($orange-500, 1),
+    rgba($orange-500, 0.8)
+  );
+  box-shadow: 0px 0px 6px 1px rgba($orange-400, 0.6);
+  color: $white !important;
+  font-weight: 400;
+}
+
+// login page css
+.login_page {
+  min-width: 100vw;
+  min-height: 90vh;
+}
+
+.login-wrapper {
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 992px) {
+  .login_page {
+    min-width: 90vw;
+    min-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .login_page {
+    min-width: 90vw;
+    min-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+}
+
+// nav background
+.add-button {
+  font-size: 18px;
+  font-family: $font-family;
+  background: linear-gradient(
+    118deg,
+    rgba($orange-500, 1),
+    rgba($orange-500, 0.8)
+  );
+  box-shadow: 0px 0px 6px 1px rgba($orange-400, 0.6);
+  color: $white !important;
+  font-weight: 400;
+  border: 1px solid $orange-400 !important;
+}
+
+.add-button-outline {
+  font-size: 18px;
+  font-family: $font-family;
+  background: transparent;
+  border: 1px solid $orange-300;
+  color: $orange-500 !important;
+  font-weight: 400;
+
+  &:hover {
+    background: linear-gradient(
+      118deg,
+      rgba($orange-50, 1),
+      rgba($orange-100, 0.4)
+    );
+    // box-shadow: 0px 0px 6px 1px rgba($orange-300, 0.6);
+    color: $black !important;
+    font-weight: 400;
+  }
+}
+
+// export button
+.export-button {
+  font-size: 18px;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+// form control customise
+.form-control:focus {
+  border-color: $orange-400 !important;
+  box-shadow: 0 0 0 0.2rem rgba($orange-500, 0.25) !important;
+}
+
+.custom_form-control {
+  border-color: $orange-400 !important;
+  box-shadow: 0 0 0 0.2rem rgba($orange-500, 0.25) !important;
+}
+.remove_form-control:focus {
+  border-color: none !important;
+  box-shadow: none !important;
+}
+// menu icons
+
+// single user view page image style
+.single-user-view {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.user-single-text {
+  left: 110px;
+}
+
+// search form
+.custom-search-form {
+  top: -54%;
+}
+
+// custom search form
+.custom-permission {
+  width: 300px !important;
+}
+
+.custom-login-row {
+  min-height: 100vh;
+}
+
+.custom-login-form {
+  padding: 0 80px;
+}
+
+.custom-logo-positon {
+  top: 3rem;
+  left: 5rem;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: $orange-500 !important;
+  color: $orange-500 !important;
+}
+
+// navbar toggle button custom
+.navbar-toggler {
+  border: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: none !important;
+  }
+}
+
+.offcanvas-header .btn-close:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+// custom table
+.sidebar_menu_wrapper {
+  height: auto !important;
+  width: 20rem;
+  z-index: 999;
+}
+
+.custom-layout__sidebar--align {
+  justify-content: center !important;
+}
+
+.custom_sidebar_row_z {
+  z-index: 9 !important;
+}
+
+.custom_sidebar_col_z {
+  z-index: 99 !important;
+}
+
+.sidebar_z {
+  z-index: 999 !important;
+}
+
+.sidebar_menu_col {
+  display: unset !important;
+  overflow: unset !important;
+}
+
+.user-menu-card {
+  width: 300px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+// ** accordion custom
+.accordion-button:focus {
+  z-index: 3;
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: $orange-500 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+input:placeholder-shown {
+  // border-color: teal;
+  // color: purple;
+  // font-style: italic;
+  font-size: 16px;
+}
+
+select {
+  // border-color: teal;
+  // color: purple;
+  // font-style: italic;
+  font-size: 16px;
+}
+
+brand-logo {
+  position: absolute;
+  top: 2rem;
+  z-index: 1;
+}
+
+.login__form-custom {
+  height: 120vh !important;
+  transform: translateY(-18vh);
+  // transform: translateX(5vw);
+}
+.login__alert-custom {
+  z-index: 999 !important;
+  top: 12%;
+  right: 4%;
+}
+// ! responsive
+@media only screen and (max-width: 1750px) {
+  .sidebar_menu_wrapper {
+    width: 18rem !important;
+  }
+
+  .login__alert-custom {
+    z-index: 999 !important;
+    top: 13%;
+    right: 4%;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .sidebar_menu_wrapper {
+    width: 17rem !important;
+  }
+  .login__alert-custom {
+    z-index: 999 !important;
+    top: 12%;
+    right: 2%;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .sidebar_menu_wrapper {
+    width: 16rem !important;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  .sidebar_menu_wrapper {
+    width: 14rem !important;
+  }
+  .login__alert-custom {
+    z-index: 999 !important;
+    top: 12%;
+    right: 1%;
+  }
+
+  // .table__button-custom {
+  //   font-size: 12px !important;
+  //   padding: 0.2rem 0.4rem !important;
+  // }
+
+  .table__text__custom {
+    font-size: 12px !important;
+  }
+  .table__heading--custom {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .custom-layout__sidebar--align {
+    justify-content: left !important;
+  }
+  .login__alert-custom {
+    z-index: 999 !important;
+    top: 12%;
+    right: 1%;
+  }
+  // .table__button-custom {
+  // }
+}
+
+// @media only screen and (max-width: 1200px) {
+//   .table__button-custom {
+//     font-size: 13px !important;
+//     padding: 0.2rem 0.5rem !important;
+//   }
+
+//   .texttd__font-size {
+//     font-size: 14px !important;
+//   }
+
+//   .table__heading-text {
+//     font-size: 18px !important;
+//   }
+// }
+
+@media only screen and (max-width: 992px) {
+  .login__alert-custom {
+    z-index: 999 !important;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px !important;
+    text-align: center;
+  }
+
+  .table__button-custom {
+    font-size: 13px !important;
+    padding: 10px 0.5rem !important;
+  }
+}
+
+// ! switch button
+.form-check-input:checked {
+  background-color: $orange-500 !important;
+  border-color: $orange-500 !important;
+}
+
+.form-check-input:focus {
+  border-color: $orange-500 !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba($orange-500, 0.25) !important;
+}
+
+// ! button responsive
+
+@media only screen and (min-width: 1401px) {
+  .table__button-custom {
+    font-size: 18px !important;
+    padding: 0.2rem 0.8rem !important;
+  }
+
+  .texttd__font-size {
+    font-size: 18px !important;
+  }
+
+  .table__heading-text {
+    font-size: 22px !important;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .table__button-custom {
+    font-size: 16px !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .texttd__font-size {
+    font-size: 16px !important;
+  }
+
+  .table__heading-text {
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .table__button-custom {
+    font-size: 13px !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .texttd__font-size {
+    font-size: 14px !important;
+  }
+
+  .table__heading-text {
+    font-size: 18px !important;
+  }
+}
+
+// ! table responsive
+@media only screen and (max-width: 500px) {
+  .responsive_table_class {
+    width: 500px !important;
+  }
+}
+
+// ! back button on recovery page responsive
+@media only screen and (max-width: 392px) {
+  .recover_back__button__custom {
+    width: 73% !important;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .recover_back__button__custom {
+    width: 79% !important;
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .recover_back__button__custom {
+    width: 82% !important;
+    margin-top: 10px;
+  }
+}

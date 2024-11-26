@@ -1,0 +1,47 @@
+import React from "react";
+import { Edit, Trash2 } from "react-feather";
+import { Button } from "reactstrap";
+import useWindowWidth from "../../customHooks/useWindowWidth";
+
+function FacilityTableRow({ item, district, editFunction, deleteFunction }) {
+  const pixel1365 = useWindowWidth(1365);
+  const pixel993 = useWindowWidth(993);
+
+  return (
+    <tr className="border-bottom border-2">
+      <td className="font-fallback w-25 table__heading-text pe-xl-2">
+        {district?.districtName}
+      </td>
+      <td className="default-fz font-fallback w-25">{item?.facilityName}</td>
+      <td className="text-end">
+        <Button
+          outline
+          color="dark"
+          className={`font-fallback my-2 py-1 table__button-custom `}
+          onClick={() => editFunction(item?.oid)}
+        >
+          <Edit
+            size={pixel993 ? 12 : pixel1365 ? 14 : 16}
+            className="mb-1 me-1"
+          />
+          Edit
+        </Button>
+        &nbsp;
+        <Button
+          outline
+          color="danger"
+          className={`font-fallback my-2 py-1 table__button-custom `}
+          onClick={() => deleteFunction(item?.oid)}
+        >
+          <Trash2
+            size={pixel993 ? 12 : pixel1365 ? 14 : 16}
+            className="mb-1 me-1"
+          />
+          Delete
+        </Button>
+      </td>
+    </tr>
+  );
+}
+
+export default FacilityTableRow;
